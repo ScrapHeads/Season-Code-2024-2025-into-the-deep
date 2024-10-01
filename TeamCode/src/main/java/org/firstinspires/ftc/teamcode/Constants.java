@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.acmerobotics.dashboard.FtcDashboard;
+import com.acmerobotics.dashboard.config.Config;
 import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.PIDFCoefficients;
@@ -12,6 +13,7 @@ public class Constants {
     public static Telemetry tele;
     public static FtcDashboard dashboard;
 
+    @Config
     public static class DriveConstants{
 
         /*
@@ -29,7 +31,7 @@ public class Constants {
          * from DriveVelocityPIDTuner.
          */
         public static final boolean RUN_USING_ENCODER = false;
-        public static PIDFCoefficients MOTOR_VELO_PID = new PIDFCoefficients(0, 0, 0,
+        public static PIDFCoefficients MOTOR_VELO_PID = new PIDFCoefficients(0.0, 0, 0,
                 getMotorVelocityF(MAX_RPM / 60 * TICKS_PER_REV));
 
         /*
@@ -50,8 +52,9 @@ public class Constants {
          * motor encoders or have elected not to use them for velocity control, these values should be
          * empirically tuned.
          */
-        public static double kV = 1.0 / rpmToVelocity(MAX_RPM);
-        public static double kA = 0;
+//        public static double kV = 1.0 / rpmToVelocity(MAX_RPM);
+        public static double kV = 0.015;
+        public static double kA = 0.002;
         public static double kStatic = 0;
 
         /*

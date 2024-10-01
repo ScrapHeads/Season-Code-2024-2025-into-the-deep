@@ -1,11 +1,11 @@
 package org.firstinspires.ftc.teamcode.DriveUtil.opmode;
 
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.MAX_ACCEL;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.MAX_VEL;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.RUN_USING_ENCODER;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.kA;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.kStatic;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.kV;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.MAX_ACCEL;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.MAX_VEL;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.RUN_USING_ENCODER;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.kA;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.kStatic;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.kV;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.config.Config;
@@ -23,6 +23,7 @@ import com.qualcomm.robotcore.util.RobotLog;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.DriveUtil.SampleMecanumDrive;
+import org.firstinspires.ftc.teamcode.Subsystems.Drivetrain;
 
 import java.util.Objects;
 
@@ -48,7 +49,7 @@ public class ManualFeedforwardTuner extends LinearOpMode {
 
     private FtcDashboard dashboard = FtcDashboard.getInstance();
 
-    private SampleMecanumDrive drive;
+    private Drivetrain drive;
 
     enum Mode {
         DRIVER_MODE,
@@ -72,7 +73,7 @@ public class ManualFeedforwardTuner extends LinearOpMode {
 
         Telemetry telemetry = new MultipleTelemetry(this.telemetry, dashboard.getTelemetry());
 
-        drive = new SampleMecanumDrive(hardwareMap);
+        drive = new Drivetrain(hardwareMap);
 
         final VoltageSensor voltageSensor = hardwareMap.voltageSensor.iterator().next();
 

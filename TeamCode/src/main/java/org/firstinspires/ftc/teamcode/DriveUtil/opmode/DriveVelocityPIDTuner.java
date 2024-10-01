@@ -1,10 +1,10 @@
 package org.firstinspires.ftc.teamcode.DriveUtil.opmode;
 
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.MAX_ACCEL;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.MAX_VEL;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.MOTOR_VELO_PID;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.RUN_USING_ENCODER;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.kV;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.MAX_ACCEL;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.MAX_VEL;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.MOTOR_VELO_PID;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.RUN_USING_ENCODER;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.kV;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.config.Config;
@@ -21,6 +21,7 @@ import com.qualcomm.robotcore.util.RobotLog;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.DriveUtil.SampleMecanumDrive;
+import org.firstinspires.ftc.teamcode.Subsystems.Drivetrain;
 
 import java.util.List;
 
@@ -51,7 +52,7 @@ import java.util.List;
 @Config
 @Autonomous(group = "drive")
 public class DriveVelocityPIDTuner extends LinearOpMode {
-    public static double DISTANCE = 72; // in
+    public static double DISTANCE = 68; // in
 
     enum Mode {
         DRIVER_MODE,
@@ -73,7 +74,7 @@ public class DriveVelocityPIDTuner extends LinearOpMode {
 
         Telemetry telemetry = new MultipleTelemetry(this.telemetry, FtcDashboard.getInstance().getTelemetry());
 
-        SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
+        Drivetrain drive = new Drivetrain(hardwareMap);
 
         Mode mode = Mode.TUNING_MODE;
 

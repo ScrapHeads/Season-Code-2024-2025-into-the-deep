@@ -44,17 +44,17 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.firstinspires.ftc.teamcode.Constants.dashboard;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.MAX_ACCEL;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.MAX_ANG_ACCEL;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.MAX_ANG_VEL;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.MAX_VEL;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.MOTOR_VELO_PID;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.RUN_USING_ENCODER;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.TRACK_WIDTH;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.encoderTicksToInches;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.kA;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.kStatic;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.kV;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.MAX_ACCEL;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.MAX_ANG_ACCEL;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.MAX_ANG_VEL;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.MAX_VEL;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.MOTOR_VELO_PID;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.RUN_USING_ENCODER;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.TRACK_WIDTH;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.encoderTicksToInches;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.kA;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.kStatic;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.kV;
 
 /*
  * Simple mecanum drive hardware implementation for REV hardware.
@@ -128,8 +128,8 @@ public class Drivetrain extends MecanumDrive implements Subsystem {
             setPIDFCoefficients(DcMotor.RunMode.RUN_USING_ENCODER, MOTOR_VELO_PID);
         }
 
-        motors.get(2).setDirection(DcMotorSimple.Direction.REVERSE);
-        motors.get(3).setDirection(DcMotorSimple.Direction.REVERSE);
+        motors.get(0).setDirection(DcMotorSimple.Direction.REVERSE);
+        motors.get(1).setDirection(DcMotorSimple.Direction.REVERSE);
 
         List<Integer> lastTrackingEncPositions = new ArrayList<>();
         List<Integer> lastTrackingEncVels = new ArrayList<>();

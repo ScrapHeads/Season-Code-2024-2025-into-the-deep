@@ -25,7 +25,7 @@ public class DriveContinous extends CommandBase {
 
     @Override
     public void execute(){
-        Pose2d pose = new Pose2d(-driver.getLeftY(), driver.getLeftX(), driver.getRightX());
+        Pose2d pose = new Pose2d(driver.getLeftY(), -driver.getLeftX(), -driver.getRightX()); // Normally we wouldn't need to invert
         drivetrain.setWeightedDrivePower(pose);
     }
 

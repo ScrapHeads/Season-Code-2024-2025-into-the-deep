@@ -28,6 +28,7 @@ import com.qualcomm.robotcore.hardware.VoltageSensor;
 import com.qualcomm.robotcore.hardware.configuration.typecontainers.MotorConfigurationType;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import org.firstinspires.ftc.teamcode.Constants;
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequenceBuilder;
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequenceRunner;
@@ -37,17 +38,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.MAX_ACCEL;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.MAX_ANG_ACCEL;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.MAX_ANG_VEL;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.MAX_VEL;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.MOTOR_VELO_PID;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.RUN_USING_ENCODER;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.TRACK_WIDTH;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.encoderTicksToInches;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.kA;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.kStatic;
-import static org.firstinspires.ftc.teamcode.DriveUtil.DriveConstants.kV;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.MAX_ACCEL;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.MAX_ANG_ACCEL;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.MAX_ANG_VEL;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.MAX_VEL;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.MOTOR_VELO_PID;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.RUN_USING_ENCODER;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.TRACK_WIDTH;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.encoderTicksToInches;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.kA;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.kStatic;
+import static org.firstinspires.ftc.teamcode.Constants.DriveConstants.kV;
 
 /*
  * Simple mecanum drive hardware implementation for REV hardware.
@@ -96,7 +97,7 @@ public class SampleMecanumDrive extends MecanumDrive {
         // TODO: adjust the names of the following hardware devices to match your configuration
         imu = hardwareMap.get(IMU.class, "imu");
         IMU.Parameters parameters = new IMU.Parameters(new RevHubOrientationOnRobot(
-                DriveConstants.LOGO_FACING_DIR, DriveConstants.USB_FACING_DIR));
+                Constants.DriveConstants.LOGO_FACING_DIR, Constants.DriveConstants.USB_FACING_DIR));
         imu.initialize(parameters);
 
         leftFront = hardwareMap.get(DcMotorEx.class, "leftFront");
