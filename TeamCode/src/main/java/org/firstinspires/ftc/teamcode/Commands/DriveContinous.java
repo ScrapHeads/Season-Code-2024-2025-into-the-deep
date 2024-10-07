@@ -10,10 +10,12 @@ import org.firstinspires.ftc.teamcode.Subsystems.Drivetrain;
 public class DriveContinous extends CommandBase {
     private Drivetrain drivetrain;
     private GamepadEx driver;
+    private double speed;
 
-    public DriveContinous(Drivetrain drivetrain, GamepadEx driver) {
+    public DriveContinous(Drivetrain drivetrain, GamepadEx driver, double speed) {
         this.drivetrain = drivetrain;
         this.driver = driver;
+        this.speed = speed;
 
         addRequirements(drivetrain);
     }
@@ -25,7 +27,7 @@ public class DriveContinous extends CommandBase {
 
     @Override
     public void execute(){
-        Pose2d pose = new Pose2d(driver.getLeftY(), -driver.getLeftX(), -driver.getRightX()); // Normally we wouldn't need to invert
+        Pose2d pose = new Pose2d(driver.getLeftY() * speed, -driver.getLeftX() * speed, -driver.getRightX() * speed); // Normally we wouldn't need to invert
         drivetrain.setWeightedDrivePower(pose);
     }
 

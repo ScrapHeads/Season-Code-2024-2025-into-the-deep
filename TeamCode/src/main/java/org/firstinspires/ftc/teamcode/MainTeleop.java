@@ -30,7 +30,7 @@ public class MainTeleop extends CommandOpMode {
     }
 
     public void assignControls() {
-        drivetrain.setDefaultCommand(new DriveContinous(drivetrain, driver));
+        drivetrain.setDefaultCommand(new DriveContinous(drivetrain, driver, 1));
     }
 
 
