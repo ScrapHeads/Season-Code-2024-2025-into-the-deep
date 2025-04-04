@@ -87,7 +87,7 @@ public class Drivetrain extends MecanumDrive implements Subsystem {
     private List<Integer> lastEncPositions = new ArrayList<>();
     private List<Integer> lastEncVels = new ArrayList<>();
 
-//    private TwoWheelTrackingLocalizer localizer = null;
+    private TwoWheelTrackingLocalizer localizer = null;
 
     public Drivetrain(HardwareMap hardwareMap) {
         super(kV, kA, kStatic, TRACK_WIDTH, TRACK_WIDTH, LATERAL_MULTIPLIER);
@@ -137,7 +137,7 @@ public class Drivetrain extends MecanumDrive implements Subsystem {
         List<Integer> lastTrackingEncPositions = new ArrayList<>();
         List<Integer> lastTrackingEncVels = new ArrayList<>();
 
-//        localizer = new TwoWheelTrackingLocalizer(hardwareMap, this);
+        localizer = new TwoWheelTrackingLocalizer(hardwareMap, this);
         setLocalizer(new TwoWheelTrackingLocalizer(hardwareMap, this));
 
         trajectorySequenceRunner = new TrajectorySequenceRunner(
@@ -329,11 +329,11 @@ public class Drivetrain extends MecanumDrive implements Subsystem {
         packet.put("X", pose2d.getX());
         packet.put("Y", pose2d.getY());
         packet.put("rot", pose2d.getHeading());
-        packet.put("xVel", poseVelo.getX());
-        packet.put("yVel", poseVelo.getY());
-        packet.put("rotVel", poseVelo.getHeading());
-//        packet.put("xVel", localizer.getWheelVelocities().get(0));
-//        packet.put("yVel", localizer.getWheelVelocities().get(1));
+//        packet.put("xVel", poseVelo.getX());
+//        packet.put("yVel", poseVelo.getY());
+//        packet.put("rotVel", poseVelo.getHeading());
+        packet.put("xVel", localizer.getWheelVelocities().get(0));
+        packet.put("yVel", localizer.getWheelVelocities().get(1));
 
         dashboard.sendTelemetryPacket(packet);
     }
